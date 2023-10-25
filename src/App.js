@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "@aws-amplify/ui-react/styles.css";
-import { API, Storage } from "aws-amplify";
+import { API, Storage } from 'aws-amplify';
 import {
   Button,
   Flex,
@@ -11,7 +11,7 @@ import {
   TextField,
   View,
   withAuthenticator,
-} from "@aws-amplify/ui-react";
+} from '@aws-amplify/ui-react';
 import { listNotes } from "./graphql/queries";
 import {
   createNote as createNoteMutation,
@@ -56,7 +56,7 @@ const App = ({ signOut }) => {
     });
     fetchNotes();
     event.target.reset();
-  }
+  }  
 
   async function deleteNote({ id, name }) {
     const newNotes = notes.filter((note) => note.id !== id);
@@ -89,17 +89,17 @@ const App = ({ signOut }) => {
             variation="quiet"
             required
           />
+          <View
+            name="image"
+            as="input"
+            type="file"
+            style={{ alignSelf: "end" }}
+          />
           <Button type="submit" variation="primary">
             Create Note
           </Button>
         </Flex>
       </View>
-      <View
-        name="image"
-        as="input"
-        type="file"
-        style={{ alignSelf: "end" }}
-      />
       <Heading level={2}>Current Notes</Heading>
       <View margin="3rem 0">
         {notes.map((note) => (
